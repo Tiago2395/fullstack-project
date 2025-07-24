@@ -1,7 +1,7 @@
 import './style.css'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
-import { App } from './App.js'
+import { UsersApp } from './users/user-app.js'
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -17,4 +17,4 @@ document.querySelector('#app').innerHTML = `
   </div>
 `
 
-App(document.querySelector('.card'))
+UsersApp(document.querySelector('.card'))
