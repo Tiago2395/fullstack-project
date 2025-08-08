@@ -41,8 +41,11 @@ const onUserChanged = (updatedUser) => {
     }
 }
 
-const reloadPage = () => {
+const reloadPage = async () => {
+    const users = await loadUsersByPage(state.currentPage );
+    if(users.length === 0) return;
 
+    state.users = users;
 }
 
 export default {

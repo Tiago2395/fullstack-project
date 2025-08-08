@@ -2,6 +2,7 @@ import "./render-table.css";
 import usersStore from "../../store/users-store";
 import { getUserById } from "../../use-cases/get-user-by-id";
 import { showModal } from "../render-modal/render-modal";
+import { deleteUser } from "../../use-cases/delete-user-by-id";
 
 let table;
 
@@ -42,7 +43,7 @@ export const renderTable = (element) => {
         table = createTable();
         element.append(table);
 
-        table.addEventListener("click", (event) => {
+        table.addEventListener("click", async (event) => {
             const target = event.target;
 
             if (target.className !== "select-user" && target.className !== "delete-user") return;
@@ -55,6 +56,15 @@ export const renderTable = (element) => {
 
             } else if (target.className === "delete-user") {
                 console.log("deleting user..");
+                const id = target.dataset?.id ? target.dataset.id : null;
+                try {
+                    await deleteUser(id);
+                    await usersStore.reloadPage();
+                    document.querySelector('#current-page').innerText = usersStore.getCurrentPage();
+                    renderTable();
+                } catch (error) {
+                    alert("Error", error)
+                }
             }
         });
     }
