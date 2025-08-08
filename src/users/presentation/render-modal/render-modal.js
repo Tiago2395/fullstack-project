@@ -55,16 +55,17 @@ export const renderModal = (element, saveUserCallback) => {
 
         const formData = new FormData(form);
         const userLike = {...loadedUser};
+
+        const isActiveCheckbox = form.querySelector("input[name='isActive']");
+        userLike.isActive = isActiveCheckbox.checked;
         for (const [key, value] of formData) {
             console.log(key, value);
             if (key === "balance"){
                 userLike[key] = +value;
                 continue;
             }
-            if (key == "isActive") {
-                userLike[key] = (value === "on") ? true : false;
-                continue;
-            }
+            if (key == "isActive") continue;
+            
             userLike[key] = value;
         }
         console.log(userLike);

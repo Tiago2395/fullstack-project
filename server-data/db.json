@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "1",
-      "isActive": true,
+      "isActive": false,
       "balance": 1397.32,
       "avatar": "http://placehold.it/32x32",
       "first_name": "Ryan",
@@ -476,6 +476,20 @@
       "last_name": "Perez",
       "firstName": "Pepe",
       "lastName": "Perez1234"
+    },
+    {
+      "id": "3e21",
+      "balance": 1,
+      "first_name": "Pepito",
+      "last_name": "Perez",
+      "isActive": false
+    },
+    {
+      "id": "2ab0",
+      "balance": 2,
+      "isActive": false,
+      "first_name": "Hola",
+      "last_name": "Test"
     }
   ]
 }
