@@ -1,4 +1,5 @@
 import "./render-add-button.css";
+import { showModal } from "../render-modal/render-modal";
 
 export const renderAddButton = (element) => {
 
@@ -9,7 +10,6 @@ export const renderAddButton = (element) => {
     element.append(addButton);
 
     addButton.addEventListener("click", () => {
-        const modal = element.querySelector(".modal-container");
-        modal.classList.remove("hide-modal");
+        showModal();
     });
 }
